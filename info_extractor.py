@@ -8,32 +8,21 @@ nltk.download('punkt_tab', quiet=True)
 nltk.download('stopwords', quiet=True)
 
 KNOWN_SKILLS = [
-    # programming languages
     "python", "java", "javascript", "typescript", "c", "c++", "c#",
     "r", "go", "ruby", "swift", "kotlin", "php", "scala", "rust",
     "matlab", "bash", "shell",
-
-    # web
     "html", "css", "react", "angular", "vue", "node", "nodejs",
     "express", "django", "flask", "fastapi", "spring", "springboot",
     "bootstrap", "jquery", "redux", "graphql", "rest", "api",
-
-    # data / ml
     "machine learning", "deep learning", "nlp", "computer vision",
     "tensorflow", "keras", "pytorch", "scikit-learn", "sklearn",
     "pandas", "numpy", "matplotlib", "seaborn", "opencv",
     "data analysis", "data science", "statistics", "regression",
     "classification", "clustering", "neural network",
-
-    # databases
     "sql", "mysql", "postgresql", "mongodb", "sqlite", "redis",
     "firebase", "cassandra", "oracle", "nosql",
-
-    # cloud and devops
     "aws", "azure", "gcp", "docker", "kubernetes", "jenkins",
     "git", "github", "gitlab", "ci/cd", "linux", "terraform",
-
-    # tools
     "excel", "power bi", "tableau", "jira", "figma",
     "postman", "vscode", "jupyter", "hadoop", "spark",
     "blockchain", "cybersecurity", "agile", "scrum",
@@ -55,7 +44,6 @@ def get_phone(text):
 
 
 def get_skills(text):
-    # tokenize and remove stop words using NLTK
     tokens = word_tokenize(text.lower())
     token_set = set(t for t in tokens if t not in stop_words)
 
@@ -64,7 +52,6 @@ def get_skills(text):
 
     for skill in KNOWN_SKILLS:
         if " " in skill:
-            # multi-word skills need regex since token set won't help here
             if re.search(r"\b" + re.escape(skill) + r"\b", cleaned):
                 found.append(skill)
         else:
@@ -103,7 +90,6 @@ def get_projects(text):
             in_projects = True
             continue
 
-        # stop when we hit any other major section heading
         if in_projects and re.search(
             r"\b(experience|education|skills|certifications|achievements|contact)\b", lower
         ) and len(lower) < 30:
