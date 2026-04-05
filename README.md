@@ -1,12 +1,12 @@
-# Resume Analyzer & Job Matcher 📝🔍
+# Resume Analyzer 📝🔍
 
-### 🚀 A Personal Project for Seamless Recruitment Analysis
+
 
 **Resume Analyzer** is a powerful, ML-based tool designed to help job seekers and recruiters bridge the gap between resumes and job descriptions. Built using **Python**, **Streamlit**, and **Natural Language Processing (NLP)** techniques, this application analyzes a candidate's resume against a specific job description to provide a detailed match score, skill gap analysis, and improvement suggestions.
 
 ---
 
-## ✨ Features
+## Features
 
 - **📄 PDF Parsing**: Effortlessly extract text from PDF resumes using `pdfplumber`.
 - **🎯 Intelligent Matching**: Uses **NLTK** and **Scikit-learn** for keyword extraction and skill matching.
@@ -69,21 +69,4 @@
 └── 📁 sample_data          # Test resumes and JDs
 ```
 
----
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/your-username/Resume-Analyzer-Python/issues).
-
-## 📜 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
-**[Your Name]**  
-*Python & Machine Learning Enthusiast*  
-[Your LinkedIn] | [Your Portfolio]
-
----
 *If you find this project helpful, don't forget to ⭐ the repository!*
