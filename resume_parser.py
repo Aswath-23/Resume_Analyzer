@@ -1,7 +1,7 @@
 import pdfplumber
 
 
-def extract_text_from_pdf(file):
+def pdf_to_text(file):
     text = ""
     with pdfplumber.open(file) as pdf:
         for page in pdf.pages:
@@ -11,14 +11,14 @@ def extract_text_from_pdf(file):
     return text.strip()
 
 
-def extract_text_from_txt(file):
+def txt_to_text(file):
     return file.read().decode("utf-8", errors="ignore").strip()
 
 
-def parse_resume(uploaded_file):
+def get_text(uploaded_file):
     filename = uploaded_file.name.lower()
     if filename.endswith(".pdf"):
-        return extract_text_from_pdf(uploaded_file)
+        return pdf_to_text(uploaded_file)
     elif filename.endswith(".txt"):
-        return extract_text_from_txt(uploaded_file)
+        return txt_to_text(uploaded_file)
     return ""
