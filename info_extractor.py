@@ -2,7 +2,7 @@ import re
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-from utils import clean_text
+from utils import clean
 
 nltk.download('punkt_tab', quiet=True)
 nltk.download('stopwords', quiet=True)
@@ -42,25 +42,25 @@ KNOWN_SKILLS = [
 stop_words = set(stopwords.words('english'))
 
 
-def extract_email(text):
+def get_email(text):
     match = re.search(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", text)
     return match.group(0) if match else "Not found"
 
 
-def extract_phone(text):
+def get_phone(text):
     match = re.search(
         r"(\+?\d{1,3}[\s\-]?)?(\(?\d{3}\)?[\s\-]?)?\d{3}[\s\-]?\d{4}", text
     )
     return match.group(0).strip() if match else "Not found"
 
 
-def extract_skills(text):
+def get_skills(text):
     # tokenize and remove stop words using NLTK
     tokens = word_tokenize(text.lower())
     token_set = set(t for t in tokens if t not in stop_words)
 
     found = []
-    cleaned = clean_text(text)
+    cleaned = clean(text)
 
     for skill in KNOWN_SKILLS:
         if " " in skill:
@@ -74,7 +74,7 @@ def extract_skills(text):
     return found
 
 
-def extract_education(text):
+def get_edu(text):
     keywords = [
         "b.tech", "btech", "b.e", "be ", "m.tech", "mtech", "mba",
         "m.sc", "msc", "b.sc", "bsc", "bachelor", "master", "phd",
@@ -91,7 +91,7 @@ def extract_education(text):
     return edu_lines if edu_lines else ["Not detected"]
 
 
-def extract_projects(text):
+def get_projects(text):
     lines = text.split("\n")
     project_lines = []
     in_projects = False
@@ -115,11 +115,11 @@ def extract_projects(text):
     return project_lines[:6] if project_lines else ["Not detected"]
 
 
-def get_resume_info(text):
+def all_info(text):
     return {
-        "email": extract_email(text),
-        "phone": extract_phone(text),
-        "skills": extract_skills(text),
-        "education": extract_education(text),
-        "projects": extract_projects(text),
+        "email": get_email(text),
+        "phone": get_phone(text),
+        "skills": get_skills(text),
+        "education": get_edu(text),
+        "projects": get_projects(text),
     }

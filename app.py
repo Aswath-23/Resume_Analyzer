@@ -1,8 +1,8 @@
 import streamlit as st
-from resume_parser import parse_resume
-from info_extractor import get_resume_info
-from matcher import get_jd_skills, match_resume, get_score_label
-from utils import extract_jd_from_pdf
+from resume_parser import get_text
+from info_extractor import all_info
+from matcher import jd_skills, match, check_score
+from utils import jd_pdf
 
 st.set_page_config(page_title="Resume Analyzer", page_icon="", layout="wide")
 
@@ -31,7 +31,7 @@ with col2:
     else:
         jd_file = st.file_uploader("Upload JD PDF", type=["pdf"], key="jd_upload")
         if jd_file:
-            jd_text = extract_jd_from_pdf(jd_file)
+            jd_text = jd_pdf(jd_file)
             st.success("JD PDF loaded successfully!")
 
 
@@ -50,15 +50,15 @@ if analyze_btn:
         st.stop()
 
     with st.spinner("Reading resume..."):
-        resume_text = parse_resume(resume_file)
+        resume_text = get_text(resume_file)
 
     if not resume_text.strip():
         st.error("Could not extract text from the resume. Make sure it's a text-based PDF.")
         st.stop()
 
-    info = get_resume_info(resume_text)
-    jd_skills = get_jd_skills(jd_text)
-    result = match_resume(info["skills"], jd_skills)
+    info = all_info(resume_text)
+    skills_list = jd_skills(jd_text)
+    result = match(info["skills"], skills_list)
 
     st.success("Done!")
     st.divider()
@@ -76,7 +76,7 @@ if analyze_btn:
 
     st.subheader("Match Score")
     score = result["score"]
-    label = get_score_label(score)
+    label = check_score(score)
 
     sc1, sc2 = st.columns([1, 2])
     with sc1:
@@ -84,7 +84,7 @@ if analyze_btn:
         st.markdown(f"**Status:** {label}")
     with sc2:
         st.progress(int(score) if score <= 100 else 100)
-        st.caption(f"Matched {len(result['matched'])} out of {len(jd_skills)} skills from the job description.")
+        st.caption(f"Matched {len(result['matched'])} out of {len(skills_list)} skills from the job description.")
 
     st.divider()
 

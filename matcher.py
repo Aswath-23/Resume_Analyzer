@@ -2,7 +2,7 @@ import re
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-from utils import clean_text
+from utils import clean
 from info_extractor import KNOWN_SKILLS
 
 nltk.download('punkt_tab', quiet=True)
@@ -11,13 +11,13 @@ nltk.download('stopwords', quiet=True)
 stop_words = set(stopwords.words('english'))
 
 
-def get_jd_skills(jd_text):
+def jd_skills(jd_text):
     # use NLTK to tokenize JD and strip stop words before matching
     tokens = word_tokenize(jd_text.lower())
     jd_tokens = set(t for t in tokens if t not in stop_words)
 
     found = []
-    cleaned = clean_text(jd_text)
+    cleaned = clean(jd_text)
 
     for skill in KNOWN_SKILLS:
         if " " in skill:
@@ -30,7 +30,7 @@ def get_jd_skills(jd_text):
     return found
 
 
-def match_resume(resume_skills, jd_skills):
+def match(resume_skills, jd_skills):
     if not jd_skills:
         return {"matched": [], "missing": [], "score": 0}
 
@@ -44,7 +44,7 @@ def match_resume(resume_skills, jd_skills):
     return {"matched": matched, "missing": missing, "score": score}
 
 
-def get_score_label(score):
+def check_score(score):
     if score >= 75:
         return "Strong Match"
     elif score >= 50:
