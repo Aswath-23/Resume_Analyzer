@@ -8,18 +8,18 @@
 
 ## Features
 
-- **📄 PDF Parsing**: Effortlessly extract text from PDF resumes using `pdfplumber`.
-- **🎯 Intelligent Matching**: Uses **NLTK** and **Scikit-learn** for keyword extraction and skill matching.
-- **📊 Match Score**: Get a percentage-based score indicating how well your resume fits the job requirements.
-- **🔍 Skill Gap Analysis**:
+- ** PDF Parsing**: Effortlessly extract text from PDF resumes using `pdfplumber`.
+- ** Intelligent Matching**: Uses **NLTK** and **Scikit-learn** for keyword extraction and skill matching.
+- ** Match Score**: Get a percentage-based score indicating how well your resume fits the job requirements.
+- ** Skill Gap Analysis**:
     - **Matched Skills**: Highlights the relevant skills already present in your resume.
     - **Missing Skills**: Identifies critical skills from the JD that are not in your resume.
-- **📱 User-Friendly Dashboard**: A clean, interactive UI built with **Streamlit**.
-- **📩 Info Extraction**: Automatically detects contact details (Email, Phone) and Education from the resume.
+- ** User-Friendly Dashboard**: A clean, interactive UI built with **Streamlit**.
+- ** Info Extraction**: Automatically detects contact details (Email, Phone) and Education from the resume.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Language**: Python 3.9+
 - **Framework**: [Streamlit](https://streamlit.io/) (for the UI)
@@ -29,44 +29,18 @@
 
 ---
 
-## ⚙️ Installation & Setup
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/your-username/Resume-Analyzer-Python.git
-   cd Resume-Analyzer-Python
-   ```
-
-2. **Create a Virtual Environment** (Optional but recommended):
-   ```bash
-   python -m venv venv
-   venv\Scripts\activate  # On Windows
-   # source venv/bin/activate # On macOS/Linux
-   ```
-
-3. **Install Dependencies**:
+## Installation & Setup
+   
+1. **Install Dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Run the Application**:
+2. **Run the Application**:
    ```bash
    streamlit run app.py
    ```
-
----
-
-## 📂 Project Structure
-
-```text
-📁 Resume_Analyzer_Python
-├── 📄 app.py               # Main Streamlit application
-├── 📄 info_extractor.py    # Logic for NER and info extraction
-├── 📄 matcher.py           # Skill matching algorithms
-├── 📄 resume_parser.py     # PDF text extraction logic
-├── 📄 utils.py             # Helper functions
-├── 📄 requirements.txt     # List of dependencies
-└── 📁 sample_data          # Test resumes and JDs
+   
 ```
 
 *If you find this project helpful, don't forget to ⭐ the repository!*
