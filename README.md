@@ -5,14 +5,14 @@
 ---
 ## Features
 
-- ** PDF Parsing**: Effortlessly extract text from PDF resumes using `pdfplumber`.
-- ** Intelligent Matching**: Uses **NLTK** and **Scikit-learn** for keyword extraction and skill matching.
-- ** Match Score**: Get a percentage-based score indicating how well your resume fits the job requirements.
-- ** Skill Gap Analysis**:
+- **PDF Parsing**: Effortlessly extract text from PDF resumes using `pdfplumber`.
+- **Intelligent Matching**: Uses **NLTK** and **Scikit-learn** for keyword extraction and skill matching.
+- **Match Score**: Get a percentage-based score indicating how well your resume fits the job requirements.
+- **Skill Gap Analysis**:
     - **Matched Skills**: Highlights the relevant skills already present in your resume.
     - **Missing Skills**: Identifies critical skills from the JD that are not in your resume.
-- ** User-Friendly Dashboard**: A clean, interactive UI built with **Streamlit**.
-- ** Info Extraction**: Automatically detects contact details (Email, Phone) and Education from the resume.
+- **User-Friendly Dashboard**: A clean, interactive UI built with **Streamlit**.
+- **Info Extraction**: Automatically detects contact details (Email, Phone) and Education from the resume.
 
 ---
 
@@ -39,5 +39,3 @@
    ```
    
 ```
-
-*If you find this project helpful, don't forget to ⭐ the repository!*
