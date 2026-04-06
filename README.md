@@ -1,11 +1,8 @@
-# Resume Analyzer 📝🔍
+# Resume Analyzer 
 
 
-
-**Resume Analyzer** is a powerful, ML-based tool designed to help job seekers and recruiters bridge the gap between resumes and job descriptions. Built using **Python**, **Streamlit**, and **Natural Language Processing (NLP)** techniques, this application analyzes a candidate's resume against a specific job description to provide a detailed match score, skill gap analysis, and improvement suggestions.
 
 ---
-
 ## Features
 
 - ** PDF Parsing**: Effortlessly extract text from PDF resumes using `pdfplumber`.
