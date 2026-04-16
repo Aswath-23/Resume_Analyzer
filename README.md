@@ -38,3 +38,10 @@
    streamlit run app.py
    ```
    
+## Output
+<img width="1800" height="804" alt="Screenshot 2026-04-16 135026" src="https://github.com/user-attachments/assets/43b390d4-562d-4c64-bee5-d0e2c9067d97" />
+
+<img width="1209" height="301" alt="Screenshot 2026-04-16 135106" src="https://github.com/user-attachments/assets/0c25d7b7-f5a0-4424-91ea-4f5cc2ed8445" />
+
+<img width="1662" height="803" alt="Screenshot 2026-04-16 135055" src="https://github.com/user-attachments/assets/a772dcd0-4de3-4809-805f-59cb4d13c995" />
+
